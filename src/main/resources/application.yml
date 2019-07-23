@@ -1,0 +1,23 @@
+server:
+  port: 9000
+
+
+spring:
+  application:
+    name: api-gateway
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+zuul:
+  routes:
+    order-service: /apigateway/order/**
+    product-service: /apigateway/product/**
+  ignored-patterns: /*-service/**
+  sensitive-headers:
+
+
